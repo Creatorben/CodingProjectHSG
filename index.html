@@ -6,12 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
-    <title>Document</title>
+    <link rel="shortcut icon" href="./Dateien/Bilder/favicon.ico" type="image/x-icon">
+    <title>Wheater App</title>
 </head>
 
 <body>
-    <h1>Test</h1>
+    <div class="suchcontainer">
+        <div class="suche">
+            <form>
+                <input type="search" name="ort" id="ort" placeholder="Suche...">
+                <button type="submit" id="submit">></button>
+            </form>
+        </div>
+    </div>
+    <div class="wettercontainer" id="wettercontainer">
+        <div class="wetterinhalt">
+
+        </div>
+        <div class="vorhersage"></div>
+    </div>
+    <script src="app.js"></script>
 </body>
 
 </html>

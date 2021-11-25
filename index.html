@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./CSS/styles.css">
     <link rel="shortcut icon" href="./Dateien/Bilder/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./CSS/weather-icons.css">
+    <link rel="stylesheet" href="./CSS/weather-icons-wind.css">
     <title>Wheater App</title>
 </head>
 
@@ -23,7 +25,23 @@
         <div class="wetterinhalt">
 
         </div>
-        <div class="vorhersage"></div>
+        <div class="vorhersageblur"></div>
+        <div class="vorhersage">
+            <!-- Aktuelle Vorhersage -->
+            <div class="wettericon">
+                <i class="wi wi-day-sunny gross"></i>
+            </div>
+            <div class="tagundtemp1">
+                <p class="tag">Mon</p>
+                <p class="temp">15°</p>
+            </div>
+            <!-- Erster Tag -->
+            <div class="tag1">Die</div>
+            <div class="wettericon1">
+                <i class="wi wi-day-sunny gross"></i>
+            </div>
+            <div class="temp1">10°</div>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

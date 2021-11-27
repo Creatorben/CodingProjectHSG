@@ -8,8 +8,10 @@
   --schatten: 3px 12px 35px 1px #000000d2;
   --wetterfontfarbe: wheat;
   --wetterfontsize: 40px;
+  --wetterfontsizeklein: 25px;
   --wetterborder: 2px solid white;
   --wetterborderschwach: 2px solid rgba(255, 255, 255, 0.6);
+  --wettericonpadding: 18px 25px 18px 18px;
 }
 
 body {
@@ -69,13 +71,18 @@ form {
   width: 900px;
   height: 600px;
   background-image: url(../Dateien/Bilder/backgrounddefault.jpg);
-  filter: blur(1px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: var(--bRadius);
   box-shadow: var(--schatten);
   overflow: hidden;
+}
+
+.wetterinhalt {
+  backdrop-filter: blur(2px);
+  width: 100%;
+  height: 100%;
 }
 
 .vorhersageblur {
@@ -131,12 +138,12 @@ form {
   border-right: var(--wetterborder);
 }
 
-.tag {
+.taggross {
   font-size: var(--wetterfontsize);
   margin-top: 0px;
 }
 
-.temp {
+.tempgross {
   font-size: var(--wetterfontsize);
   margin-bottom: 0px;
 }
@@ -145,34 +152,116 @@ form {
   font-size: 80px;
 }
 
-/* Tag 1 */
+.klein {
+  font-size: 60px;
+}
 
-.tag1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+.tag {
+  font-size: var(--wetterfontsizeklein);
+  text-align: center;
+  align-self: end;
   grid-row-start: 1;
   grid-row-end: span 1;
-  font-size: var(--wetterfontsize);
-  text-align: center;
-  align-self: end;
 }
 
-.wettericon1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+.icon {
+  place-self: center;
+  padding: var(--wettericonpadding);
+  border-right: var(--wetterborderschwach);
   grid-row-start: 2;
   grid-row-end: span 1;
-  place-self: center;
-  padding: 18px 20px 18px 0;
-  border-right: var(--wetterborderschwach);
 }
 
-.temp1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+.temp {
+  font-size: var(--wetterfontsizeklein);
+  text-align: center;
+  align-self: start;
   grid-row-start: 3;
   grid-row-end: span 1;
-  font-size: var(--wetterfontsize);
-  text-align: center;
-  align-self: end;
+}
+
+/* Tag 1 */
+
+#tag1 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+#icon1 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+#temp1 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+/* Tag 2 */
+
+#tag2 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+#icon2 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+#temp2 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+/* Tag 3 */
+
+#tag3 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+#icon3 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+#temp3 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+/* Tag 4 */
+
+#tag4 {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+#icon4 {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+#temp4 {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+/* Tag 5 */
+
+#tag5 {
+  grid-column-start: 7;
+  grid-column-end: 8;
+}
+
+#icon5 {
+  grid-column-start: 7;
+  grid-column-end: 8;
+  border-right: none;
+}
+
+#temp5 {
+  grid-column-start: 7;
+  grid-column-end: 8;
 }

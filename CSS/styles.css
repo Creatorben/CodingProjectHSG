@@ -6,7 +6,7 @@
   --weissdiffus: rgba(255, 255, 255, 0.4);
   --schwarzdiffus: rgba(0, 0, 0, 0.3);
   --schatten: 3px 12px 35px 1px #000000d2;
-  --wetterfontfarbe: wheat;
+  --wetterfontfarbe: white;
   --wetterfontsize: 40px;
   --wetterfontsizeklein: 25px;
   --wetterborder: 2px solid white;
@@ -103,7 +103,7 @@ form {
   display: inline-grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 25% 50% 25%;
-  gap: 5px 5px;
+  gap: 5px 0px;
 }
 
 /* Wettervorhersagen */
@@ -127,29 +127,8 @@ form {
   place-self: center;
 }
 
-.tagundtemp1 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: span 1;
-  place-self: center;
-  text-align: center;
-  padding-right: 20px;
-  border-right: var(--wetterborder);
-}
-
-.taggross {
-  font-size: var(--wetterfontsize);
-  margin-top: 0px;
-}
-
-.tempgross {
-  font-size: var(--wetterfontsize);
-  margin-bottom: 0px;
-}
-
 .gross {
-  font-size: 80px;
+  font-size: 110px;
 }
 
 .klein {
@@ -183,72 +162,106 @@ form {
 /* Tag 1 */
 
 #tag1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 #icon1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 #temp1 {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 /* Tag 2 */
 
 #tag2 {
-  grid-column-start: 4;
-  grid-column-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 #icon2 {
-  grid-column-start: 4;
-  grid-column-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 #temp2 {
-  grid-column-start: 4;
-  grid-column-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 3;
 }
 
 /* Tag 3 */
 
 #tag3 {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 
 #icon3 {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 
 #temp3 {
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 3;
+  grid-column-end: 4;
 }
 
 /* Tag 4 */
 
 #tag4 {
-  grid-column-start: 6;
-  grid-column-end: 7;
+  grid-column-start: 4;
+  grid-column-end: 5;
 }
 
 #icon4 {
-  grid-column-start: 6;
-  grid-column-end: 7;
+  grid-column-start: 4;
+  grid-column-end: 5;
 }
 
 #temp4 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+/* Tag 5 */
+
+#tag5 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+#icon5 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+#temp5 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+/* Tag 6 */
+
+#tag5 {
   grid-column-start: 6;
   grid-column-end: 7;
 }
 
-/* Tag 5 */
+#icon5 {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+#temp5 {
+  grid-column-start: 6;
+  grid-column-end: 7;
+}
+
+/* Tag 7 */
 
 #tag5 {
   grid-column-start: 7;
@@ -264,4 +277,36 @@ form {
 #temp5 {
   grid-column-start: 7;
   grid-column-end: 8;
+}
+
+/* Grosse Tagesvorhersage */
+
+.wetterinhalt .grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  width: 100%;
+  height: 58%;
+  color: var(--wetterfontfarbe);
+}
+
+.standort,
+.temperaturGross {
+  padding: 20px 20px 0px 20px;
+}
+
+.grossesIcon {
+  padding: 30px 0px 10px 20px;
+}
+
+.temperaturGross {
+  justify-self: end;
+}
+
+#zeit {
+  text-align: right;
+}
+
+#tempgross {
+  font-size: 100px;
+  margin-bottom: 0;
 }

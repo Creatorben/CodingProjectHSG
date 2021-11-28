@@ -4,6 +4,8 @@ let eingabe = [];
 
 function ortSpeichern(e) {
   e.preventDefault();
+  sessionStorage.removeItem("Ort");
+  sessionStorage.clear();
   let ort = document.getElementById("ort").value;
   eingabe.push(ort);
   sessionStorage.setItem("Ort", JSON.stringify(eingabe));
@@ -53,3 +55,54 @@ function hintergrundWechseln() {
 }
 
 window.onload = hintergrundWechseln();
+
+// Wetter für Standort abrufen
+
+function Standortwetter() {
+  let ort = sessionStorage.getItem("Ort");
+  let ortN = JSON.parse(ort);
+  console.log(ortN[ortN.length - 1]);
+  let ortNormal = ortN[ortN.length - 1];
+  // Zuerst aktuellen Ort in Dokument schreiben //
+  let döttmuendeortane = document.getElementById("place");
+  döttmuendeortane.innerHTML = ortNormal;
+}
+
+btn.addEventListener("click", Standortwetter);
+
+// Aktuelles Datum und Zeit einfügen
+
+function aktuellesDatum() {
+  let heute = new Date();
+  const monthNames = [
+    "Januar",
+    "Februar",
+    "März",
+    "April",
+    "Mai",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember",
+  ];
+  function pad(value) {
+    if (value < 10) {
+      return "0" + value;
+    } else {
+      return value;
+    }
+  }
+  let datum = `${heute.getDate()}. ${
+    monthNames[heute.getMonth()]
+  }, ${heute.getFullYear()}`;
+  let zeit = `${heute.getHours()}:${pad(heute.getUTCMinutes())}`;
+  let döttechunntsdatumane = document.getElementById("datum");
+  let döttechunntziitane = document.getElementById("zeit");
+  döttechunntsdatumane.innerHTML = datum;
+  döttechunntziitane.innerHTML = zeit;
+}
+
+window.onload = aktuellesDatum();

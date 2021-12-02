@@ -58,6 +58,9 @@ window.onload = hintergrundWechseln();
 
 // Wetter für Standort abrufen
 
+const OpenWeatherMapAPI = "8fabe8281116c9e8d15a398f06b23036";
+const Suchergebnisse = 1;
+
 function Standortwetter() {
   let ort = sessionStorage.getItem("Ort");
   let ortN = JSON.parse(ort);
@@ -66,9 +69,42 @@ function Standortwetter() {
   // Zuerst aktuellen Ort in Dokument schreiben //
   let döttmuendeortane = document.getElementById("place");
   döttmuendeortane.innerHTML = ortNormal;
+  OrtZuKoordinaten(ortNormal);
 }
 
 btn.addEventListener("click", Standortwetter);
+
+function OrtZuKoordinaten(Ort) {
+  let url = `http://api.openweathermap.org/geo/1.0/direct?q=${Ort},CH&limit=${Suchergebnisse}&appid=${OpenWeatherMapAPI}`;
+  console.log(url);
+  // Daten abrufen
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (jsonData) {
+      const latitude = jsonData[0].lat;
+      const longitude = jsonData[0].lon;
+      const Koordinaten = [latitude, longitude];
+      sessionStorage.setItem("Koordinaten", JSON.stringify(Koordinaten));
+      KoordinatenZuWetter();
+    });
+}
+
+function KoordinatenZuWetter() {
+  // Koordinaten Array aus der Sessionstorage holen
+  const Koordinaten = JSON.parse(sessionStorage.getItem("Koordinaten"));
+  // Url aufbauen
+  let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${Koordinaten[0]}&lon=${Koordinaten[1]}&units=metric&exclude=minutely,hourly,alerts&appid=${OpenWeatherMapAPI}`;
+  // Abfrage
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (jsonData) {
+      console.log(jsonData);
+    });
+}
 
 // Aktuelles Datum und Zeit einfügen
 

@@ -18,11 +18,11 @@ console.log(eingabe);
 
 // Hintergrund je nach Tageszeit wechseln
 let Wettercontainer = document.getElementById("wettercontainer");
+const heute = new Date();
+const zeit = heute.getHours();
 
 function hintergrundWechseln() {
   const accessKey = "ncHA1aJyS2eNi7ZowM_Gxw93tTdi-7nhhC4eOCinzuE";
-  const heute = new Date();
-  const zeit = heute.getHours();
   let tageszeit;
   let neuesbild;
 
@@ -55,7 +55,7 @@ function hintergrundWechseln() {
 }
 
 window.onload = hintergrundWechseln();
-
+// ____________________________________________________________ //
 // Wetter für Standort abrufen
 
 const OpenWeatherMapAPI = "8fabe8281116c9e8d15a398f06b23036";
@@ -102,14 +102,105 @@ function KoordinatenZuWetter() {
       return response.json();
     })
     .then(function (jsonData) {
-      console.log(jsonData);
+      // console.log(jsonData);
+      AktuellesWetterändern(jsonData.current);
+      VorhersageTemp(jsonData.daily);
+      VorhersageIcons(jsonData.daily);
     });
 }
+
+// Aktuelles Wetter ändern
+
+function AktuellesWetterändern(data) {
+  console.log(data);
+  // Alle relevanten Plätze auswählen, wo etwas eingefügt wird
+  const temp = document.getElementById("tempgross");
+  const icon = document.getElementById("grossesIcon");
+  // Infos einfügen
+  temp.textContent = `${Math.round(data.temp)}°`;
+  // console.log(IDzuIcon(data.weather[0].id));
+  // icon.className = "";
+  icon.classList.replace("wi-day-sleet", IDzuIcon(data.weather[0].id));
+}
+
+// Vorhersage nächste Woche ändern
+
+// Temperaturen
+function VorhersageTemp(data) {
+  console.log(data);
+  // Alle relevanten Plätze auswählen, wo etwas eingefügt wird
+  const temp1 = document.getElementById("temp1");
+  const temp2 = document.getElementById("temp2");
+  const temp3 = document.getElementById("temp3");
+  const temp4 = document.getElementById("temp4");
+  const temp5 = document.getElementById("temp5");
+  const temp6 = document.getElementById("temp6");
+  const temp7 = document.getElementById("temp7");
+  // Temp herausnehmen
+  temp1.textContent = `${Math.round(data[0].temp.day)}°`;
+  temp2.textContent = `${Math.round(data[1].temp.day)}°`;
+  temp3.textContent = `${Math.round(data[2].temp.day)}°`;
+  temp4.textContent = `${Math.round(data[3].temp.day)}°`;
+  temp5.textContent = `${Math.round(data[4].temp.day)}°`;
+  temp6.textContent = `${Math.round(data[5].temp.day)}°`;
+  temp7.textContent = `${Math.round(data[6].temp.day)}°`;
+}
+
+// Vorhersage Icons
+function VorhersageIcons(data) {
+  // Alle relevanten Plätze auswählen, wo etwas eingefügt wird
+  const icon1 = document.getElementById("icon1").querySelector(".wi");
+  const icon2 = document.getElementById("icon2").querySelector(".wi");
+  const icon3 = document.getElementById("icon3").querySelector(".wi");
+  const icon4 = document.getElementById("icon4").querySelector(".wi");
+  const icon5 = document.getElementById("icon5").querySelector(".wi");
+  const icon6 = document.getElementById("icon6").querySelector(".wi");
+  const icon7 = document.getElementById("icon7").querySelector(".wi");
+  // Icons einsetzen
+  icon1.classList.replace("wi-day-sleet", IDzuIcon(data[0].weather[0].id));
+  icon2.classList.replace("wi-day-sleet", IDzuIcon(data[1].weather[0].id));
+  icon3.classList.replace("wi-day-sleet", IDzuIcon(data[2].weather[0].id));
+  icon4.classList.replace("wi-day-sleet", IDzuIcon(data[3].weather[0].id));
+  icon5.classList.replace("wi-day-sleet", IDzuIcon(data[4].weather[0].id));
+  icon6.classList.replace("wi-day-sleet", IDzuIcon(data[5].weather[0].id));
+  icon7.classList.replace("wi-day-sleet", IDzuIcon(data[6].weather[0].id));
+}
+
+// Wetter ID zu Icon übersetzer
+
+function IDzuIcon(ID) {
+  let tagnacht;
+  if (zeit >= 6 && zeit <= 19) {
+    tagnacht = "day";
+  } else {
+    tagnacht = "night";
+  }
+
+  // Einzelne Icons mappen
+  if (ID >= 200 && ID <= 235) {
+    return `wi-${tagnacht}-thunderstorm`;
+  } else if (ID >= 300 && ID <= 335) {
+    return `wi-${tagnacht}-showers`;
+  } else if (ID >= 500 && ID <= 535) {
+    return `wi-${tagnacht}-rain`;
+  } else if (ID >= 600 && ID <= 635) {
+    return `wi-snow`;
+  } else if (ID >= 700 && ID <= 790) {
+    return `wi-dust`;
+  } else if ((ID = 800 && tagnacht === "day")) {
+    return `wi-day-sunny`;
+  } else if ((ID = 800 && tagnacht === "night")) {
+    return `wi-night-clear`;
+  } else if (ID >= 800 && ID <= 835) {
+    return `wi-${tagnacht}-cloudy`;
+  }
+}
+
+// ____________________________________________________________ //
 
 // Aktuelles Datum und Zeit einfügen
 
 function aktuellesDatum() {
-  let heute = new Date();
   const monthNames = [
     "Januar",
     "Februar",

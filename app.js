@@ -129,41 +129,24 @@ function AktuellesWetterändern(data) {
 function VorhersageTemp(data) {
   console.log(data);
   // Alle relevanten Plätze auswählen, wo etwas eingefügt wird
-  const temp1 = document.getElementById("temp1");
-  const temp2 = document.getElementById("temp2");
-  const temp3 = document.getElementById("temp3");
-  const temp4 = document.getElementById("temp4");
-  const temp5 = document.getElementById("temp5");
-  const temp6 = document.getElementById("temp6");
-  const temp7 = document.getElementById("temp7");
+  const alleTemps = document.querySelectorAll(".temp");
   // Temp herausnehmen
-  temp1.textContent = `${Math.round(data[0].temp.day)}°`;
-  temp2.textContent = `${Math.round(data[1].temp.day)}°`;
-  temp3.textContent = `${Math.round(data[2].temp.day)}°`;
-  temp4.textContent = `${Math.round(data[3].temp.day)}°`;
-  temp5.textContent = `${Math.round(data[4].temp.day)}°`;
-  temp6.textContent = `${Math.round(data[5].temp.day)}°`;
-  temp7.textContent = `${Math.round(data[6].temp.day)}°`;
+  for (let i = 0; i < alleTemps.length; i++) {
+    const element = alleTemps[i];
+    element.innerHTML = `${Math.round(data[i].temp.day)}°`;
+  }
 }
 
 // Vorhersage Icons
 function VorhersageIcons(data) {
   // Alle relevanten Plätze auswählen, wo etwas eingefügt wird
-  const icon1 = document.getElementById("icon1").querySelector(".wi");
-  const icon2 = document.getElementById("icon2").querySelector(".wi");
-  const icon3 = document.getElementById("icon3").querySelector(".wi");
-  const icon4 = document.getElementById("icon4").querySelector(".wi");
-  const icon5 = document.getElementById("icon5").querySelector(".wi");
-  const icon6 = document.getElementById("icon6").querySelector(".wi");
-  const icon7 = document.getElementById("icon7").querySelector(".wi");
+  const alleIcons = document.querySelectorAll(".icon");
+  console.log(alleIcons);
   // Icons einsetzen
-  icon1.className = `wi ${IDzuIcon(data[0].weather[0].id)} klein`;
-  icon2.className = `wi ${IDzuIcon(data[1].weather[0].id)} klein`;
-  icon3.className = `wi ${IDzuIcon(data[2].weather[0].id)} klein`;
-  icon4.className = `wi ${IDzuIcon(data[3].weather[0].id)} klein`;
-  icon5.className = `wi ${IDzuIcon(data[4].weather[0].id)} klein`;
-  icon6.className = `wi ${IDzuIcon(data[5].weather[0].id)} klein`;
-  icon7.className = `wi ${IDzuIcon(data[6].weather[0].id)} klein`;
+  for (let i = 0; i < alleIcons.length; i++) {
+    const element = alleIcons[i].querySelector(".wi");
+    element.className = `wi ${IDzuIcon(data[i].weather[0].id)} klein`;
+  }
 }
 
 // Wetter ID zu Icon übersetzer
@@ -236,6 +219,7 @@ function aktuellesDatum() {
   let alliWuchetäg = document.querySelectorAll(".tag");
   for (let i = 0; i < alliWuchetäg.length; i++) {
     const element = alliWuchetäg[i];
+    //Wochentage array wrap-over
     if (wochentag + i <= 6) {
       element.innerHTML = Wochentage[wochentag + i];
     } else {

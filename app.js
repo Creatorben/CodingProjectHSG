@@ -120,7 +120,7 @@ function AktuellesWetterändern(data) {
   temp.textContent = `${Math.round(data.temp)}°`;
   // console.log(IDzuIcon(data.weather[0].id));
   // icon.className = "";
-  icon.classList.replace("wi-day-sleet", IDzuIcon(data.weather[0].id));
+  icon.className = `wi ${IDzuIcon(data.weather[0].id)} gross`;
 }
 
 // Vorhersage nächste Woche ändern
@@ -157,13 +157,13 @@ function VorhersageIcons(data) {
   const icon6 = document.getElementById("icon6").querySelector(".wi");
   const icon7 = document.getElementById("icon7").querySelector(".wi");
   // Icons einsetzen
-  icon1.classList.replace("wi-day-sleet", IDzuIcon(data[0].weather[0].id));
-  icon2.classList.replace("wi-day-sleet", IDzuIcon(data[1].weather[0].id));
-  icon3.classList.replace("wi-day-sleet", IDzuIcon(data[2].weather[0].id));
-  icon4.classList.replace("wi-day-sleet", IDzuIcon(data[3].weather[0].id));
-  icon5.classList.replace("wi-day-sleet", IDzuIcon(data[4].weather[0].id));
-  icon6.classList.replace("wi-day-sleet", IDzuIcon(data[5].weather[0].id));
-  icon7.classList.replace("wi-day-sleet", IDzuIcon(data[6].weather[0].id));
+  icon1.className = `wi ${IDzuIcon(data[0].weather[0].id)} klein`;
+  icon2.className = `wi ${IDzuIcon(data[1].weather[0].id)} klein`;
+  icon3.className = `wi ${IDzuIcon(data[2].weather[0].id)} klein`;
+  icon4.className = `wi ${IDzuIcon(data[3].weather[0].id)} klein`;
+  icon5.className = `wi ${IDzuIcon(data[4].weather[0].id)} klein`;
+  icon6.className = `wi ${IDzuIcon(data[5].weather[0].id)} klein`;
+  icon7.className = `wi ${IDzuIcon(data[6].weather[0].id)} klein`;
 }
 
 // Wetter ID zu Icon übersetzer
@@ -215,6 +215,7 @@ function aktuellesDatum() {
     "November",
     "Dezember",
   ];
+  const Wochentage = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   function pad(value) {
     if (value < 10) {
       return "0" + value;
@@ -230,6 +231,21 @@ function aktuellesDatum() {
   let döttechunntziitane = document.getElementById("zeit");
   döttechunntsdatumane.innerHTML = datum;
   döttechunntziitane.innerHTML = zeit;
+  // Wochentage aktualisieren
+  let wochentag = heute.getDay();
+  let alliWuchetäg = document.querySelectorAll(".tag");
+  for (let i = 0; i < alliWuchetäg.length; i++) {
+    const element = alliWuchetäg[i];
+    if (wochentag + i <= 6) {
+      element.innerHTML = Wochentage[wochentag + i];
+    } else {
+      element.innerHTML = Wochentage[wochentag - 7 + i];
+    }
+  }
+
+  // alliWuchetäg.forEach(element => {
+
+  // });
 }
 
 window.onload = aktuellesDatum();

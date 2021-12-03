@@ -246,35 +246,35 @@ form {
 
 /* Tag 6 */
 
-#tag5 {
+#tag6 {
   grid-column-start: 6;
   grid-column-end: 7;
 }
 
-#icon5 {
+#icon6 {
   grid-column-start: 6;
   grid-column-end: 7;
 }
 
-#temp5 {
+#temp6 {
   grid-column-start: 6;
   grid-column-end: 7;
 }
 
 /* Tag 7 */
 
-#tag5 {
+#tag7 {
   grid-column-start: 7;
   grid-column-end: 8;
 }
 
-#icon5 {
+#icon7 {
   grid-column-start: 7;
   grid-column-end: 8;
   border-right: none;
 }
 
-#temp5 {
+#temp7 {
   grid-column-start: 7;
   grid-column-end: 8;
 }

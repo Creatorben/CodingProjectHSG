@@ -1,5 +1,6 @@
 /*HANNAH'S CSS*/
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
   overflow: auto;
@@ -8,30 +9,36 @@ body, html {
 }
 
 /*General Styling*/
-h2,h3,p,hr{margin:0;}
-p{font-size: 95%;}
-
+h2,
+h3,
+p,
+hr {
+  margin: 0;
+}
+p {
+  font-size: 95%;
+}
 
 /*Background*/
-.bg-container{
-  height:100%;
+.bg-container {
+  height: 100%;
   width: 100%;
-  position:absolute;
-  background-image: url("https://source.unsplash.com/1600x900/?landscape");
+  position: absolute;
+  background-image: url('https://source.unsplash.com/1600x900/?landscape');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  }
+}
 
-.mask1{
-  position:absolute;
+.mask1 {
+  position: absolute;
   height: 50%;
   width: 120%;
   min-width: 400px;
-  left:-2em;
-  top:54%;
-  z-index:0;
-  box-shadow:0 -10px 12px 20px black inset;
+  left: -2em;
+  top: 54%;
+  z-index: 0;
+  box-shadow: 0 -10px 12px 20px black inset;
   background: #000000ab;
 }
 
@@ -40,7 +47,7 @@ p{font-size: 95%;}
   margin: 4em 0em 0em 0em;
 }
 
-.search-container form{
+.search-container form {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -51,19 +58,19 @@ input.search-bar {
   width: 37%;
   max-width: 20em;
   margin: 0 5px;
-  padding:0.4em 1em;
-  border:none;
+  padding: 0.4em 1em;
+  border: none;
   border-radius: 5px;
-  outline:none;
-  background:#000000e0;
+  outline: none;
+  background: #000000e0;
   font-family: inherit;
   font-size: 80%;
-  color:white;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-::placeholder{
-    color:lightslategrey;
+::placeholder {
+  color: lightslategrey;
 }
 
 .search-btn {
@@ -74,67 +81,113 @@ input.search-bar {
   width: 3em;
   text-align: center;
   background: #000000e0;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.search-btn:hover {opacity: 0.9; box-shadow: 0 -8px 16px  rgba(0,0,0,0.2) inset, 0 -6px 20px  rgba(0,0,0,0.2) inset;}
+.search-btn:hover {
+  opacity: 0.9;
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.2) inset,
+    0 -6px 20px rgba(0, 0, 0, 0.2) inset;
+}
 /* .search-btn:active {} */
-.material-icons{color: #ffff;}
+.material-icons {
+  color: #ffff;
+}
 
 /*Main Content: Background*/
 .cardcontainer {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
-.card{ 
-  width:100%;
+.card {
+  width: 100%;
   max-width: 900px;
   min-width: 600px;
-  position:relative;
+  position: relative;
   margin: 4em;
   padding: 2em;
   overflow: hidden;
   border-radius: 16px;
   background: #000000d0;
-  color:white;
+  color: white;
 }
 
 /*Current, inkl. City title, current date & Time*/
 .current {
   display: grid;
-  grid-template-areas: 'Item1 Item1''Item2 Item3''Item4 Item5';
+  grid-template-areas: 'Item1 Item1' 'Item2 Item3' 'Item4 Item5';
 }
 
-.current div{display:flex; align-items:center;}
-.current div p{margin: 5px 0 15px 0;}
-.current div h2{font-weight: 400; font-size: 170%;}
-.current div h1, .gross {font-size:270%;}
+.current div {
+  display: flex;
+  align-items: center;
+}
+.current div p {
+  margin: 5px 0 15px 0;
+}
+.current div h2 {
+  font-weight: 400;
+  font-size: 170%;
+}
+.current div h1,
+.gross {
+  font-size: 270%;
+}
 
-.item2,.item3 {border-bottom: 1.5px solid white;}
-.item3,.item5{justify-content: end;}
-.item1,.item2,.item4 {padding-left: 2em;}
-.item3,.item5{padding-right: 2em;}
+.item2,
+.item3 {
+  border-bottom: 1.5px solid white;
+}
+.item3,
+.item5 {
+  justify-content: end;
+}
+.item1,
+.item2,
+.item4 {
+  padding-left: 2em;
+}
+.item3,
+.item5 {
+  padding-right: 2em;
+}
 
-
-
-.item1{grid-area: Item1;}
-.item2{grid-area: Item2;}
-.item3{grid-area: Item3; padding-right: 3em !important;}
-.item4{grid-area: Item4;}
-.item5{grid-area: Item5;}
-
+.item1 {
+  grid-area: Item1;
+}
+.item2 {
+  grid-area: Item2;
+}
+.item3 {
+  grid-area: Item3;
+  padding-right: 3em !important;
+}
+.item4 {
+  grid-area: Item4;
+}
+.item5 {
+  grid-area: Item5;
+}
 
 /*Forecast Grid*/
-.forecast{
-  position:relative;
+.forecast {
+  position: relative;
   padding-top: 41.679px;
   z-index: 1;
-  display:grid;
+  display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   grid-gap: 2px;
 }
 
-.forecast div {text-align: center; min-width: 100px;}
+.forecast div {
+  text-align: center;
+  min-width: 100px;
+}
 
-.forecast div h3{font-size:135%;}
-.icon{margin: 25px 0 15px 0; font-size:175%;}
+.forecast div h3 {
+  font-size: 135%;
+}
+.icon {
+  margin: 25px 0 15px 0;
+  font-size: 175%;
+}

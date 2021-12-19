@@ -63,7 +63,6 @@ btn.addEventListener('click', Standortwetter);
 
 function OrtZuKoordinaten(Ort) {
   let url = `http://api.openweathermap.org/geo/1.0/direct?q=${Ort},CH&limit=${Suchergebnisse}&appid=${OpenWeatherMapAPI}`;
-  console.log(url);
   // Daten abrufen
   fetch(url)
     .then(function (response) {

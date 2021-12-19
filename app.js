@@ -62,7 +62,7 @@ function Standortwetter() {
 btn.addEventListener('click', Standortwetter);
 
 function OrtZuKoordinaten(Ort) {
-  let url = `http://api.openweathermap.org/geo/1.0/direct?q=${Ort},CH&limit=${Suchergebnisse}&appid=${OpenWeatherMapAPI}`;
+  let url = `https://api.openweathermap.org/geo/1.0/direct?q=${Ort},CH&limit=${Suchergebnisse}&appid=${OpenWeatherMapAPI}`;
   // Daten abrufen
   fetch(url)
     .then(function (response) {
@@ -214,10 +214,6 @@ function aktuellesDatum() {
       element.innerHTML = Wochentage[wochentag - 7 + i];
     }
   }
-
-  // alliWuchetäg.forEach(element => {
-
-  // });
 }
 
 window.onload = aktuellesDatum();
